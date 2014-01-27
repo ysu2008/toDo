@@ -8,6 +8,8 @@
 
 #import "ToDoViewController.h"
 
+#define todoListKey @"todoListStrings"
+
 @interface ToDoViewController ()
 
 @property (nonatomic, readwrite, strong) NSMutableArray *todoStrings;
@@ -39,7 +41,14 @@
 }
 
 - (void)setup {
-    _todoStrings = [NSMutableArray array];
+    self.title = @"To Do List";
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _todoStrings = [NSMutableArray arrayWithArray:[defaults objectForKey:todoListKey]];
+}
+
+- (void)persistToDoList {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.todoStrings forKey:todoListKey];
 }
 
 # pragma mark - table view methods
@@ -49,10 +58,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EditableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EditableCell"];
-    
+    [cell.todoString setText:[self.todoStrings objectAtIndex:[indexPath row]]];
     [cell setDelegate:self];
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.todoStrings removeObjectAtIndex:[indexPath row]];
+    [self persistToDoList];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 
 - (void)viewDidLoad
@@ -68,8 +87,10 @@
 }
 
 - (IBAction)newTodoButtonPressed:(id)sender {
-    [self.todoStrings addObject:[NSString stringWithFormat:@""]];
-    [self.tableView reloadData];
+    [self.todoStrings insertObject:[NSString stringWithFormat:@""] atIndex:0];
+    [self persistToDoList];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+    //[self.tableView reloadData];
 }
 
 - (IBAction)onTap:(id)sender {
@@ -80,5 +101,6 @@
 
 - (void)cellWasEdited:(EditableCell *)cell {
     [self.todoStrings replaceObjectAtIndex:[[self.tableView indexPathForCell:cell] row] withObject:cell.todoString.text];
+    [self persistToDoList];
 }
 @end
