@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F2000831895D57700BBF85B /* ToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2000821895D57700BBF85B /* ToDoViewController.m */; };
+		2F2000861895DA5000BBF85B /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2000851895DA5000BBF85B /* EditableCell.m */; };
 		2FD80B2F1892596B00263B1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD80B2E1892596B00263B1D /* Foundation.framework */; };
 		2FD80B311892596B00263B1D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD80B301892596B00263B1D /* CoreGraphics.framework */; };
 		2FD80B331892596B00263B1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD80B321892596B00263B1D /* UIKit.framework */; };
@@ -15,7 +17,6 @@
 		2FD80B3F1892596B00263B1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD80B3E1892596B00263B1D /* AppDelegate.m */; };
 		2FD80B421892596B00263B1D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD80B401892596B00263B1D /* Main_iPhone.storyboard */; };
 		2FD80B451892596B00263B1D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD80B431892596B00263B1D /* Main_iPad.storyboard */; };
-		2FD80B481892596B00263B1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD80B471892596B00263B1D /* ViewController.m */; };
 		2FD80B4A1892596B00263B1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD80B491892596B00263B1D /* Images.xcassets */; };
 		2FD80B511892596B00263B1D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD80B501892596B00263B1D /* XCTest.framework */; };
 		2FD80B521892596B00263B1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD80B2E1892596B00263B1D /* Foundation.framework */; };
@@ -35,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F2000811895D57700BBF85B /* ToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoViewController.h; sourceTree = "<group>"; };
+		2F2000821895D57700BBF85B /* ToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoViewController.m; sourceTree = "<group>"; };
+		2F2000841895DA5000BBF85B /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
+		2F2000851895DA5000BBF85B /* EditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableCell.m; sourceTree = "<group>"; };
 		2FD80B2B1892596B00263B1D /* toDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD80B2E1892596B00263B1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2FD80B301892596B00263B1D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,8 +52,6 @@
 		2FD80B3E1892596B00263B1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2FD80B411892596B00263B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2FD80B441892596B00263B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		2FD80B461892596B00263B1D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2FD80B471892596B00263B1D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2FD80B491892596B00263B1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2FD80B4F1892596B00263B1D /* toDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD80B501892596B00263B1D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -114,14 +117,16 @@
 		2FD80B341892596B00263B1D /* toDo */ = {
 			isa = PBXGroup;
 			children = (
+				2F2000811895D57700BBF85B /* ToDoViewController.h */,
+				2F2000821895D57700BBF85B /* ToDoViewController.m */,
 				2FD80B3D1892596B00263B1D /* AppDelegate.h */,
 				2FD80B3E1892596B00263B1D /* AppDelegate.m */,
 				2FD80B401892596B00263B1D /* Main_iPhone.storyboard */,
 				2FD80B431892596B00263B1D /* Main_iPad.storyboard */,
-				2FD80B461892596B00263B1D /* ViewController.h */,
-				2FD80B471892596B00263B1D /* ViewController.m */,
 				2FD80B491892596B00263B1D /* Images.xcassets */,
 				2FD80B351892596B00263B1D /* Supporting Files */,
+				2F2000841895DA5000BBF85B /* EditableCell.h */,
+				2F2000851895DA5000BBF85B /* EditableCell.m */,
 			);
 			path = toDo;
 			sourceTree = "<group>";
@@ -253,9 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD80B481892596B00263B1D /* ViewController.m in Sources */,
 				2FD80B3F1892596B00263B1D /* AppDelegate.m in Sources */,
 				2FD80B3B1892596B00263B1D /* main.m in Sources */,
+				2F2000831895D57700BBF85B /* ToDoViewController.m in Sources */,
+				2F2000861895DA5000BBF85B /* EditableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +480,7 @@
 				2FD80B621892596B00263B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2FD80B631892596B00263B1D /* Build configuration list for PBXNativeTarget "toDoTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +489,7 @@
 				2FD80B651892596B00263B1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
