@@ -112,10 +112,43 @@
     return 1;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSString *temp = [self.todoStrings objectAtIndex:sourceIndexPath.row];
+    [self.todoStrings replaceObjectAtIndex:sourceIndexPath.row withObject:[self.todoStrings objectAtIndex:destinationIndexPath.row]];
+    [self.todoStrings replaceObjectAtIndex:destinationIndexPath.row withObject:temp];
+    [self persistToDoList];
+}
+
+- (void)editButton:(id)sender
+{
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style: UIBarButtonItemStyleBordered target:self action:@selector(editButton:)];
+    [self.navigationItem setLeftBarButtonItem:editButton];
 }
 
 - (void)didReceiveMemoryWarning
