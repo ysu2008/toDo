@@ -23,31 +23,38 @@
         <scene sceneID="6ek-9D-fGU">
             <objects>
                 <tableViewController id="dFc-4N-FmD" customClass="ToDoViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hxd-8b-8WR">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Hxd-8b-8WR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="EditableCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditableCell" rowHeight="61" id="5Cy-Sm-xAJ" customClass="EditableCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="61"/>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="EditableCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditableCell" rowHeight="60" id="5Cy-Sm-xAJ" customClass="EditableCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Cy-Sm-xAJ" id="ZYF-5S-RW1">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="replace me" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="d9L-gS-HQk">
-                                            <rect key="frame" x="20" y="15" width="280" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="New To Do" translatesAutoresizingMaskIntoConstraints="NO" id="5zm-fq-4xY">
+                                            <rect key="frame" x="20" y="14" width="280" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <connections>
-                                                <outlet property="delegate" destination="5Cy-Sm-xAJ" id="SXd-VP-pbV"/>
+                                                <outlet property="delegate" destination="5Cy-Sm-xAJ" id="Qvb-rv-Lfh"/>
                                             </connections>
-                                        </textField>
+                                        </textView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5zm-fq-4xY" firstAttribute="leading" secondItem="ZYF-5S-RW1" secondAttribute="leading" constant="20" id="Otj-G9-YNw"/>
+                                        <constraint firstItem="5zm-fq-4xY" firstAttribute="top" secondItem="ZYF-5S-RW1" secondAttribute="top" constant="13" id="PoU-2H-d3J"/>
+                                        <constraint firstAttribute="bottom" secondItem="5zm-fq-4xY" secondAttribute="bottom" constant="12" id="dY2-lE-MxO"/>
+                                        <constraint firstAttribute="trailing" secondItem="5zm-fq-4xY" secondAttribute="trailing" constant="20" id="zZ4-FN-HYz"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="todoString" destination="d9L-gS-HQk" id="cox-Ou-bJh"/>
+                                    <outlet property="todoString" destination="5zm-fq-4xY" id="4T5-xS-6Xd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -32,11 +32,12 @@
     // Configure the view for the selected state
 }
 
-#pragma mark - UITextFieldDelegate methods
+#pragma mark - UITextViewDelegate methods
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)textViewDidChange:(UITextView *)textView {
+    
     if (self.delegate){
-        [self.delegate cellWasEdited:self];
+        [self.delegate cellTextChanged:self];
     }
 }
 

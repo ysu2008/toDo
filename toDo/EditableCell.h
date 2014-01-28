@@ -10,15 +10,15 @@
 
 @protocol EditableCellDelegate;
 
-@interface EditableCell : UITableViewCell<UITextFieldDelegate>
+@interface EditableCell : UITableViewCell<UITextViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *todoString;
+@property (strong, nonatomic) IBOutlet UITextView *todoString;
 @property (nonatomic, readwrite, strong) id<EditableCellDelegate> delegate;
 
 @end
 
 @protocol EditableCellDelegate
 
-- (void)cellWasEdited:(EditableCell *)cell;
+- (void)cellTextChanged:(EditableCell *)cell;
 
 @end
